@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00049.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="ac511201-3ac5-4450-8096-640ecefb49b7">
+      <SHORT-NAME>ARRoot</SHORT-NAME>
+      <ELEMENTS>
+        <SWC-IMPLEMENTATION>
+          <SHORT-NAME>LedControlImpl</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ARRoot/LedControlASWC/LedControlInternalBehaviour</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+        <SYSTEM-SIGNAL>
+          <SHORT-NAME>LedSignalSystem</SHORT-NAME>
+        </SYSTEM-SIGNAL>
+        <CAN-CLUSTER>
+          <SHORT-NAME>SpeedCANCluster</SHORT-NAME>
+        </CAN-CLUSTER>
+        <ECU-INSTANCE>
+          <SHORT-NAME>SpeedECU</SHORT-NAME>
+          <COMM-CONTROLLERS>
+            <CAN-COMMUNICATION-CONTROLLER S="">
+              <SHORT-NAME>CanController</SHORT-NAME>
+            </CAN-COMMUNICATION-CONTROLLER>
+          </COMM-CONTROLLERS>
+          <CONNECTORS>
+            <CAN-COMMUNICATION-CONNECTOR S="">
+              <SHORT-NAME>CanCommunicationConnector</SHORT-NAME>
+              <CATEGORY></CATEGORY>
+              <COMM-CONTROLLER-REF DEST="CAN-COMMUNICATION-CONTROLLER">/ARRoot/SpeedECU/CanController</COMM-CONTROLLER-REF>
+            </CAN-COMMUNICATION-CONNECTOR>
+          </CONNECTORS>
+        </ECU-INSTANCE>
+        <SYSTEM>
+          <SHORT-NAME>SpeedLightSystem</SHORT-NAME>
+          <MAPPINGS>
+            <SYSTEM-MAPPING>
+              <SHORT-NAME>SpeedSystemMapping</SHORT-NAME>
+              <DATA-MAPPINGS>
+                <SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+                  <DATA-ELEMENT-IREF>
+                    <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/TopLevelComposition/SpeedCompositionPrototype</CONTEXT-COMPONENT-REF>
+                    <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/SpeedLightSystem/SpeedLightRootSwComposition</CONTEXT-COMPOSITION-REF>
+                    <CONTEXT-PORT-REF DEST="P-PORT-PROTOTYPE">/ARRoot/WheelSpeedASWC/WheelSpeedPPort</CONTEXT-PORT-REF>
+                    <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARRoot/SpeedSRInterface_Wheel/WheelSpeed</TARGET-DATA-PROTOTYPE-REF>
+                  </DATA-ELEMENT-IREF>
+                  <SYSTEM-SIGNAL-REF DEST="SYSTEM-SIGNAL">/ARRoot/WheelSpeedSignal</SYSTEM-SIGNAL-REF>
+                </SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+                <SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+                  <DATA-ELEMENT-IREF>
+                    <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/TopLevelComposition/SpeedCompositionPrototype</CONTEXT-COMPONENT-REF>
+                    <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/SpeedLightSystem/SpeedLightRootSwComposition</CONTEXT-COMPOSITION-REF>
+                    <CONTEXT-PORT-REF DEST="P-PORT-PROTOTYPE">/ARRoot/VechicleSpeedASWC/VechicleSpeedPPort</CONTEXT-PORT-REF>
+                    <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARRoot/SpeedSRInterface_Vechicle/VechicleSpeed</TARGET-DATA-PROTOTYPE-REF>
+                  </DATA-ELEMENT-IREF>
+                  <SYSTEM-SIGNAL-REF DEST="SYSTEM-SIGNAL">/ARRoot/VehicleSpeedSignal</SYSTEM-SIGNAL-REF>
+                </SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+                <SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+                  <DATA-ELEMENT-IREF>
+                    <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/TopLevelComposition/SpeedCompositionPrototype</CONTEXT-COMPONENT-REF>
+                    <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/SpeedLightSystem/SpeedLightRootSwComposition</CONTEXT-COMPOSITION-REF>
+                    <CONTEXT-PORT-REF DEST="P-PORT-PROTOTYPE">/ARRoot/LedActuatorSWC/LedSignalPPort</CONTEXT-PORT-REF>
+                    <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ARRoot/SpeedSRInterface_Led/LedSignal</TARGET-DATA-PROTOTYPE-REF>
+                  </DATA-ELEMENT-IREF>
+                  <SYSTEM-SIGNAL-REF DEST="SYSTEM-SIGNAL">/ARRoot/LedSignalSystem</SYSTEM-SIGNAL-REF>
+                </SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+              </DATA-MAPPINGS>
+              <MAPPING-CONSTRAINTS>
+                <SWC-TO-ECU-MAPPING-CONSTRAINT S="">
+                  <COMPONENT-IREF>
+                    <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/SpeedLightSystem/SpeedLightRootSwComposition</CONTEXT-COMPOSITION-REF>
+                    <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/TopLevelComposition/SpeedCompositionPrototype</CONTEXT-COMPONENT-REF>
+                    <TARGET-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/SpeedComposition/WheelSpeedSwComponentPrototype</TARGET-COMPONENT-REF>
+                  </COMPONENT-IREF>
+                  <ECU-INSTANCE-REFS>
+                    <ECU-INSTANCE-REF DEST="ECU-INSTANCE">/ARRoot/SpeedECU</ECU-INSTANCE-REF>
+                  </ECU-INSTANCE-REFS>
+                </SWC-TO-ECU-MAPPING-CONSTRAINT>
+                <SWC-TO-ECU-MAPPING-CONSTRAINT>
+                  <COMPONENT-IREF>
+                    <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/SpeedLightSystem/SpeedLightRootSwComposition</CONTEXT-COMPOSITION-REF>
+                    <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/TopLevelComposition/SpeedCompositionPrototype</CONTEXT-COMPONENT-REF>
+                    <TARGET-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/SpeedComposition/VechicleSpeedSwComponentPrototype</TARGET-COMPONENT-REF>
+                  </COMPONENT-IREF>
+                  <ECU-INSTANCE-REFS>
+                    <ECU-INSTANCE-REF DEST="ECU-INSTANCE">/ARRoot/SpeedECU</ECU-INSTANCE-REF>
+                  </ECU-INSTANCE-REFS>
+                </SWC-TO-ECU-MAPPING-CONSTRAINT>
+                <SWC-TO-ECU-MAPPING-CONSTRAINT>
+                  <COMPONENT-IREF>
+                    <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/SpeedLightSystem/SpeedLightRootSwComposition</CONTEXT-COMPOSITION-REF>
+                    <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/TopLevelComposition/SpeedCompositionPrototype</CONTEXT-COMPONENT-REF>
+                    <TARGET-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/SpeedComposition/LedControlComponentPrototype</TARGET-COMPONENT-REF>
+                  </COMPONENT-IREF>
+                  <ECU-INSTANCE-REFS>
+                    <ECU-INSTANCE-REF DEST="ECU-INSTANCE">/ARRoot/SpeedECU</ECU-INSTANCE-REF>
+                  </ECU-INSTANCE-REFS>
+                </SWC-TO-ECU-MAPPING-CONSTRAINT>
+              </MAPPING-CONSTRAINTS>
+              <SW-IMPL-MAPPINGS>
+                <SWC-TO-IMPL-MAPPING>
+                  <SHORT-NAME>LedControlImplMapping</SHORT-NAME>
+                  <COMPONENT-IMPLEMENTATION-REF DEST="SWC-IMPLEMENTATION">/ARRoot/LedControlImpl</COMPONENT-IMPLEMENTATION-REF>
+                  <COMPONENT-IREFS>
+                    <COMPONENT-IREF>
+                      <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/SpeedLightSystem/SpeedLightRootSwComposition</CONTEXT-COMPOSITION-REF>
+                      <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/TopLevelComposition/SpeedCompositionPrototype</CONTEXT-COMPONENT-REF>
+                      <TARGET-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/SpeedComposition/LedControlComponentPrototype</TARGET-COMPONENT-REF>
+                    </COMPONENT-IREF>
+                  </COMPONENT-IREFS>
+                </SWC-TO-IMPL-MAPPING>
+                <SWC-TO-IMPL-MAPPING>
+                  <SHORT-NAME>VehicleSpeedImplMapping</SHORT-NAME>
+                  <COMPONENT-IMPLEMENTATION-REF DEST="SWC-IMPLEMENTATION">/ARRoot/VehicleSpeedImpl</COMPONENT-IMPLEMENTATION-REF>
+                  <COMPONENT-IREFS>
+                    <COMPONENT-IREF>
+                      <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/SpeedLightSystem/SpeedLightRootSwComposition</CONTEXT-COMPOSITION-REF>
+                      <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/TopLevelComposition/SpeedCompositionPrototype</CONTEXT-COMPONENT-REF>
+                      <TARGET-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/SpeedComposition/VechicleSpeedSwComponentPrototype</TARGET-COMPONENT-REF>
+                    </COMPONENT-IREF>
+                  </COMPONENT-IREFS>
+                </SWC-TO-IMPL-MAPPING>
+                <SWC-TO-IMPL-MAPPING S="">
+                  <SHORT-NAME>WheelSpeedImplMapping</SHORT-NAME>
+                  <CATEGORY></CATEGORY>
+                  <COMPONENT-IMPLEMENTATION-REF DEST="SWC-IMPLEMENTATION">/ARRoot/WheelSpeedImpl</COMPONENT-IMPLEMENTATION-REF>
+                  <COMPONENT-IREFS>
+                    <COMPONENT-IREF>
+                      <CONTEXT-COMPOSITION-REF DEST="ROOT-SW-COMPOSITION-PROTOTYPE">/ARRoot/SpeedLightSystem/SpeedLightRootSwComposition</CONTEXT-COMPOSITION-REF>
+                      <CONTEXT-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/TopLevelComposition/SpeedCompositionPrototype</CONTEXT-COMPONENT-REF>
+                      <TARGET-COMPONENT-REF DEST="SW-COMPONENT-PROTOTYPE">/ARRoot/SpeedComposition/WheelSpeedSwComponentPrototype</TARGET-COMPONENT-REF>
+                    </COMPONENT-IREF>
+                  </COMPONENT-IREFS>
+                </SWC-TO-IMPL-MAPPING>
+              </SW-IMPL-MAPPINGS>
+            </SYSTEM-MAPPING>
+          </MAPPINGS>
+          <ROOT-SOFTWARE-COMPOSITIONS>
+            <ROOT-SW-COMPOSITION-PROTOTYPE>
+              <SHORT-NAME>SpeedLightRootSwComposition</SHORT-NAME>
+              <SOFTWARE-COMPOSITION-TREF DEST="COMPOSITION-SW-COMPONENT-TYPE">/ARRoot/TopLevelComposition</SOFTWARE-COMPOSITION-TREF>
+            </ROOT-SW-COMPOSITION-PROTOTYPE>
+          </ROOT-SOFTWARE-COMPOSITIONS>
+        </SYSTEM>
+        <COMPOSITION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>TopLevelComposition</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE>
+              <SHORT-NAME>VehicleSpeedTopRPort</SHORT-NAME>
+              <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ARRoot/SpeedSRInterface_Vechicle</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE>
+              <SHORT-NAME>WheelSpeedTopPPort</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ARRoot/SpeedSRInterface_Wheel</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <COMPONENTS>
+            <SW-COMPONENT-PROTOTYPE>
+              <SHORT-NAME>SpeedCompositionPrototype</SHORT-NAME>
+              <TYPE-TREF DEST="COMPOSITION-SW-COMPONENT-TYPE">/ARRoot/SpeedComposition</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+          </COMPONENTS>
+          <CONNECTORS>
+            <DELEGATION-SW-CONNECTOR>
+              <SHORT-NAME>VehicleDelegation</SHORT-NAME>
+              <INNER-PORT-IREF>
+                <R-PORT-IN-COMPOSITION-INSTANCE-REF>
+                  <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ARRoot/LedControlASWC/VechicleSpeedRPort</TARGET-R-PORT-REF>
+                </R-PORT-IN-COMPOSITION-INSTANCE-REF>
+              </INNER-PORT-IREF>
+              <OUTER-PORT-REF DEST="R-PORT-PROTOTYPE">/ARRoot/TopLevelComposition/VehicleSpeedTopRPort</OUTER-PORT-REF>
+            </DELEGATION-SW-CONNECTOR>
+            <DELEGATION-SW-CONNECTOR>
+              <SHORT-NAME>WheelDelegation</SHORT-NAME>
+              <INNER-PORT-IREF>
+                <R-PORT-IN-COMPOSITION-INSTANCE-REF>
+                  <TARGET-R-PORT-REF DEST="R-PORT-PROTOTYPE">/ARRoot/VechicleSpeedASWC/WheelSpeedRPort</TARGET-R-PORT-REF>
+                </R-PORT-IN-COMPOSITION-INSTANCE-REF>
+              </INNER-PORT-IREF>
+              <OUTER-PORT-REF DEST="P-PORT-PROTOTYPE">/ARRoot/TopLevelComposition/WheelSpeedTopPPort</OUTER-PORT-REF>
+            </DELEGATION-SW-CONNECTOR>
+          </CONNECTORS>
+        </COMPOSITION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION>
+          <SHORT-NAME>VehicleSpeedImpl</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ARRoot/VechicleSpeedASWC/VechicleSpeedInternalBehaviour</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+        <SYSTEM-SIGNAL>
+          <SHORT-NAME>VehicleSpeedSignal</SHORT-NAME>
+        </SYSTEM-SIGNAL>
+        <SWC-IMPLEMENTATION>
+          <SHORT-NAME>WheelSpeedImpl</SHORT-NAME>
+          <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ARRoot/WheelSpeedASWC/WheelSpeedInternalBehaviour</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+        <SYSTEM-SIGNAL>
+          <SHORT-NAME>WheelSpeedSignal</SHORT-NAME>
+        </SYSTEM-SIGNAL>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
